@@ -8,7 +8,7 @@ const startServer = async () => {
     console.log(`🚀 Express server running on port ${CONSTS.PORT} 🚀`);
   })
 }
-// hello - Ari
+// branch check - Ari
 startServer()
 
 // i am now on floras branch 
