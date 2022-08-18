@@ -1,4 +1,10 @@
+import express from "express"
+
+
+
 const app = express()
+
+app.use(express.json())
 
 const startServer = async () => {
   await connectToDb()
@@ -8,5 +14,5 @@ const startServer = async () => {
     console.log(`🚀 Express server running on port ${CONSTS.PORT} 🚀`);
   })
 }
-// branch check - Ari
+// hello - Ari
 startServer()
