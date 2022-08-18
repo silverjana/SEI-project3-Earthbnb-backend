@@ -14,5 +14,5 @@ const startServer = async () => {
     console.log(`🚀 Express server running on port ${CONSTS.PORT} 🚀`);
   })
 }
-// hello - Ari
+
 startServer()
