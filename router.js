@@ -9,16 +9,18 @@ router
 
 //! routes for our individual properties
 router
-  .route("/allproperties/:id")
+  .route("/allproperties/:propertyId")
   .get(propertiesController.getIndividual)
 
   .put(propertiesController.update)
   .delete(propertiesController.remove)
 
+  .post(reviewController.create)
+
 //! reviews
 router
-  .route("/allproperties/:id/:commentId")
-  .post(reviewController.create)
+  .route("/allproperties/:propertyId/:commentId")
+  
   .put(reviewController.update)
   .delete(reviewController.remove)
 
