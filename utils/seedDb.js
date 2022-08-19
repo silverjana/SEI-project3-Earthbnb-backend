@@ -1,8 +1,8 @@
 import connectToDb from "./db.js"
-// import PropertyModel from
+import PropertyModel from "../models/property.js"
 import seedingData from "./seedingData.js
 import mongoose from "mongoose"
-//import userModel
+import userModel from "../models/user.js"
 
 const seed = async () => {
   await connectToDb()
@@ -10,7 +10,7 @@ const seed = async () => {
 
   await mongoose.connection.db.dropDatabase()
 
-  const dbMembers = await PropertyModel.create(seedingData.properties)
+  const dbProperties = await PropertyModel.create(seedingData.properties)
   console.log(
     `${dbProperties.length} properties have been created succesfully in the database`
   )
