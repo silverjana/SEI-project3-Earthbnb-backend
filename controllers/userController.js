@@ -1,4 +1,4 @@
-import Usermodel from "../models/user,js"
+import Usermodel from "../models/user.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import CONSTS from "../consts.js"
@@ -84,6 +84,8 @@ const login = async (req, res, next) => {
   }
 
 }
+
+//! userdata
 
 // export for routes that require userController: 
 // router.route("/register").post(userController.register)
