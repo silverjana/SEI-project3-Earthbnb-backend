@@ -11,13 +11,14 @@ const reviewSchema = new mongoose.Schema({
 
 const propertySchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
-  type: { type: String, enum: ["beach", "cabin", "camping", "art city", "chalet"], required: true, unique: true },
+  type: { type: String, enum: ["beach", "cabin", "camping", "art city", "chalet"], required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
   date_start: { type: Date, },
   date_end: { type: Date, },
   amenities: String,
-  longitude: String,
+  longitude: Number,
+  latitude: Number,
   images: [],
   reviews: [reviewSchema],
   createdAt: { type: Date, default: Date.now() },
