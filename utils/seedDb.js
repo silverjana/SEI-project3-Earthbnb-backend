@@ -15,7 +15,7 @@ const seed = async () => {
     `${dbProperties.length} properties have been created succesfully in the database`
   )
   const dbUsers = await UserModel.create([
-    seedingData.users.admin, 
+    seedingData.users.admin,
     seedingData.users.user
   ])
   console.log(

@@ -53,6 +53,7 @@ const update = async (req, res, next) => {
   const { id } = req.params
   const { body: updatedProperty } = req
 
+
   try {
     //first we need to find the document to update using mongoose method findById (to find id in DB) This is stored to a variable
     const documentToUpdate = await PropertyModel.findById(id)
