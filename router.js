@@ -37,7 +37,7 @@ router
 
 //! user routes 
 router.route("/register").post(userController.register)
-router.route("/login").post(auth, userController.login)
+router.route("/login").post(userController.login)
 
 //router.route("/:userid").get(userController.userData)
 
