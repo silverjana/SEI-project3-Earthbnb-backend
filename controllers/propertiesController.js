@@ -8,28 +8,26 @@ const getAll = async (req, res, next) => {
 }
 
 const getIndividual = async (req, res, next) => {
-  //here we need to get the id from the url created using params on the request
-  const { propertyId: id } = req.params
+  // get the document id from the ur
+  const { id } = req.params;
 
-  console.log(id)
-
-
-
-  // use Mongoose.findbyId method to query document with given ID
-  // we can return this body and populate it with the created by property so we know which user created the document and use this information to allow them to edit.
-
-
-
+  // use Mongoose.findById method to query document
+  // with given ID
   try {
-    const foundProperty = await PropertyModel.findById(id).populate(
-      "createdBy",
-      "-password"
-    )
+    const foundProperty = await PropertyModel.findById(id)
+    // .populate(
+    //   "createdBy",
+    //   "-password"
+    // )
 
-    // if not found memeber return response status 404 and a message
     if (!foundProperty) {
-      return res.status(404).json({ message: `Property with id ${id} could not be found.` })
+      return res
+        .status(404)
+        .json({ message: `Property with id ${id} could not be found.` })
     }
+
+    console.log(foundProperty)
+
     return res.status(200).json(foundProperty)
   } catch (error) {
     next(error)
@@ -37,20 +35,21 @@ const getIndividual = async (req, res, next) => {
 }
 
 
+
+// Create endpoint to create a new tapa in database
+// Get new tapa from request.body element
 const create = async (req, res) => {
   const { body: newProperty } = req
-  // create new document based on document model and user input
-
   try {
-    // if admin then create new document by spreading in newProperty, with createdBy property from the req's currentUser id: 
-
-    const createdDocument = await PropertyModel.create({ ...newProperty, createdBy: req.currentUser.id })
-    console.log(req.currentUser)
-    // return created database document with ID and createdAt property
+    const createdDocument = await PropertyModel.create({
+      ...newProperty,
+      createdBy: req.currentUser.id,
+    })
     return res.status(200).json(createdDocument)
   } catch (error) {
     return res.status(500).json({ message: "Something went wrong", error })
   }
+  // returning created database document with ID and createdAt property
 }
 
 // Similar with updating document - only the creator or admin are allowed to update

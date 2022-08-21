@@ -29,12 +29,12 @@ const auth = async (req, res, next) => {
       return res.status(401).json({ message: 'Token affiliated to user that does not exist anymore' })
     }
 
-  //  if user still exists and token was verified
-  // -> alter the request and attach "currentUser" property:
-  req.currentUser = authUser
-  next()
-  
-  } catch(error) {
+    //  if user still exists and token was verified
+    // -> alter the request and attach "currentUser" property:
+    req.currentUser = authUser
+    next()
+
+  } catch (error) {
     next(error)
   }
 

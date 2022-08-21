@@ -15,7 +15,7 @@ router
 
 //! routes for our individual properties
 router
-  .route("/allproperties/:propertyId")
+  .route("/allproperties/:id")
   .get(propertiesController.getIndividual)
 
   .put(propertiesController.update)
@@ -33,7 +33,7 @@ router
 //! create property
 router
   .route("/addproperty")
-  .post(propertiesController.create)
+  .post(auth, propertiesController.create)
 
 //! user routes 
 router.route("/register").post(userController.register)

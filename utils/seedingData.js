@@ -54,4 +54,4 @@ const properties = [
 
 ]
 
-export default { users, properties}
+export default { users, properties }
