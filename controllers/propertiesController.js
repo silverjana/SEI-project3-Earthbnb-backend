@@ -11,6 +11,10 @@ const getIndividual = async (req, res, next) => {
   //here we need to get the id from the url created using params on the request
   const { propertyId: id } = req.params
 
+  console.log(id)
+
+
+
   // use Mongoose.findbyId method to query document with given ID
   // we can return this body and populate it with the created by property so we know which user created the document and use this information to allow them to edit.
 
@@ -21,6 +25,7 @@ const getIndividual = async (req, res, next) => {
       "createdBy",
       "-password"
     )
+
     // if not found memeber return response status 404 and a message
     if (!foundProperty) {
       return res.status(404).json({ message: `Property with id ${id} could not be found.` })
@@ -30,6 +35,7 @@ const getIndividual = async (req, res, next) => {
     next(error)
   }
 }
+
 
 const create = async (req, res) => {
   const { body: newProperty } = req
