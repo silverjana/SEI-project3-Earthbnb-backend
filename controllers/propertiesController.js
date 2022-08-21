@@ -9,7 +9,7 @@ const getAll = async (req, res, next) => {
 
 const getIndividual = async (req, res, next) => {
   //here we need to get the id from the url created using params on the request
-  const { id } = req.params
+  const { propertyId: id } = req.params
 
   // use Mongoose.findbyId method to query document with given ID
   // we can return this body and populate it with the created by property so we know which user created the document and use this information to allow them to edit.
@@ -50,7 +50,7 @@ const create = async (req, res) => {
 // Similar with updating document - only the creator or admin are allowed to update
 
 const update = async (req, res, next) => {
-  const { id } = req.params
+  const { propertyId: id } = req.params
   const { body: updatedProperty } = req
 
 
@@ -86,7 +86,7 @@ const update = async (req, res, next) => {
 //delete
 
 const remove = async (req, res, next) => {
-  const { id } = req.params
+  const { propertyId: id } = req.params
 
   try {
 
