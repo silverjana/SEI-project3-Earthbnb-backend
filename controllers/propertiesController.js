@@ -9,7 +9,7 @@ const getAll = async (req, res, next) => {
 
 const getIndividual = async (req, res, next) => {
   //here we need to get the id from the url created using params on the request
-  const { id } = req.params;
+  const { id } = req.params
 
   // use Mongoose.findbyId method to query document with given ID
   // we can return this body and populate it with the created by property so we know which user created the document and use this information to allow them to edit.
@@ -51,7 +51,7 @@ const create = async (req, res) => {
 
 const update = async (req, res, next) => {
   const { id } = req.params
-  const { body: updatedProperty } = req;
+  const { body: updatedProperty } = req
 
   try {
     //first we need to find the document to update using mongoose method findById (to find id in DB) This is stored to a variable
