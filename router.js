@@ -33,8 +33,8 @@ router.route("/review/:propertyId").post(auth, reviewController.create)
 
 router
   .route("/all-properties/:propertyId/:reviewId")
-  .put(reviewController.update)
-  .delete(reviewController.remove)
+  .put(auth, reviewController.update)
+  .delete(auth, reviewController.remove)
 
 
 

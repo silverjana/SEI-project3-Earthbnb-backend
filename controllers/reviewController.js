@@ -48,20 +48,23 @@ const create = async (req, res, next) => {
     next(error)
   }
 }
-//update
 const update = async (req, res, next) => {
+
   const { propertyId, reviewId } = req.params
+
+  console.log(propertyId, reviewId)
   const updatedReview = req.body
+  console.log(req.body)
   const { id: userId } = req.currentUser
+  console.log(userId)
 
   try {
     const property = await PropertyModel.findById(propertyId)
-
     const reviewToUpdate = property.reviews.find(
       (review) => review.id === reviewId
     )
     if (
-      reviewToUpdate.createdBy !== userId &&
+      reviewToUpdate.createdBy.toString() !== userId &&
       req.currentUser.role !== "admin"
     ) {
       return res.status(403).json({
@@ -76,37 +79,25 @@ const update = async (req, res, next) => {
         return review
       }
     })
+
     await property.save()
 
     return res.status(200).json({
-      message: "Review has been updated",
-      updatedreview: property.reviews.find((review) => review.id === reviewId),
+      message: "review has been updated",
+      updatedReview: property.reviews.find((review) => review.id === reviewId),
     })
   } catch (error) {
     next(error)
   }
 }
 
-
-
-//remove
-
 const remove = async (req, res, next) => {
   const { propertyId, reviewId } = req.params
   const { id: userId } = req.currentUser
-  // console.log({ propertyId })
-  // console.log({ reviewId })
-  // console.log({ userId })
 
   try {
     const property = await PropertyModel.findById(propertyId)
 
-
-    // can the user actually delete the review?
-    // find the specified review in array
-    // and check whether createdBy === req.currentUser.id
-    // or whether the currentUser is admin. If both is false
-    // return 403 - Forbidden
     const reviewToDelete = property.reviews.find(
       (review) => review.id === reviewId
     )
@@ -115,25 +106,24 @@ const remove = async (req, res, next) => {
       req.currentUser.role !== "admin"
     ) {
       return res.status(403).json({
-        message: "Forbidden. Not admin or user who created this review"
+        message: "Forbdiden. Not admin or user who created this review",
       })
     }
 
-    // delete only the review matching the Id in the request params
     property.reviews = property.reviews.filter(
+
       (review) => review.id !== reviewId
     )
 
-    // saving the update back to the database
-    const updatedReview = await property.save()
-
+    const updatedproperty = await property.save()
     return res.status(200).json({
-      message: "Review successfully deleted",
-      updatedReviews: property.reviews,
+      message: "Comment successfully deleted",
+      updatedReviews: updatedproperty.reviews,
     })
   } catch (error) {
     next(error)
   }
 }
+
 
 export default { create, update, remove }
