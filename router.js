@@ -8,32 +8,35 @@ const router = express.Router()
 //! landing check
 router.route("/").get((req, res) => res.status(200).send('API running'))
 
+
 //! Routes for all
 router
-  .route("/allproperties")
+  .route("/all-properties")
   .get(propertiesController.getAll)
 
 //! routes for our individual properties
 router
-  .route("/allproperties/:id")
+  .route("/all-properties/:id")
   .get(propertiesController.getIndividual)
 
-  .put(propertiesController.update)
+  .put(auth, propertiesController.update)
   .delete(propertiesController.remove)
 
-  .post(reviewController.create)
-
-//! reviews
-router
-  .route("/allproperties/:propertyId/:commentId")
-
-  .put(reviewController.update)
-  .delete(reviewController.remove)
 
 //! create property
 router
-  .route("/addproperty")
+  .route("/add-property")
   .post(auth, propertiesController.create)
+
+//! reviews
+router.route("/review/:propertyId").post(auth, reviewController.create)
+
+router
+  .route("/all-properties/:propertyId/:reviewId")
+  .put(reviewController.update)
+  .delete(reviewController.remove)
+
+
 
 //! user routes 
 router.route("/register").post(userController.register)

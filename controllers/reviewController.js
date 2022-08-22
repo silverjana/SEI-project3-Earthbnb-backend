@@ -1,44 +1,53 @@
+import property from '../models/property.js'
 import PropertyModel from '../models/property.js'
 
 //create / post in "/allproperties/:id"
 const create = async (req, res, next) => {
 
+
   const { propertyId } = req.params
 
   try {
-    const property = await PropertyModel.findById(propertyId);
+    const property = await PropertyModel.findById(propertyId)
     if (!property) {
       return res
         .status(404)
-        .json({ message: `Property with id: ${propertyId} not found.` })
+        .json({ message: `property with ${propertyId} not found.` })
     }
 
-    const hasReviewed = property.reviews.some(
-      (comment) =>
-        comment.createdBy.toString() === req.currentUser.id
+    const someReviewIsRated = property.reviews.some(
+      (review) =>
+        review.createdBy.toString() === req.currentUser.id && review.rating
     )
-    if (hasReviewed) {
-      return res.status(403).json({ message: "You already reviewed this property" })
+    if (
+      // is the user trying to give a rating?
+      req.body.rating &&
+      // has the user already rated the dish?
+      someReviewIsRated
+    ) {
+      return res.status(403).json({ message: "You already rated this dish" })
     }
 
+    // property is now a normal JavaScript object, so we can treat it as such.
+    // meaning we can just push onto the existing reviews array.
+    const newreview = { ...req.body, createdBy: req.currentUser.id }
+    property.reviews.push(newreview)
+    // at this point (line 26) we haven't saved our document back to the
+    // database! We have only added a review on the array that is
+    // attached to the propertys JS object.
+    // Next line saves it to the database.
+    await property.save()
 
-    // push onto the existing  array.
-    const newReview = { ...req.body, createdBy: req.currentUser.id };
-    property.reviews.push(newReview);
-
-    // save to db
-    await property.save();
-
+    // console.log(req.currentUser.id)
+    // console.log(req.body)
     return res.status(200).json({
-      message: "Review successfully created!",
-      createdReview: newReview,
+      message: "review successfully created!",
+      createdreview: newreview,
     })
   } catch (error) {
     next(error)
   }
-
 }
-
 //update
 const update = async (req, res, next) => {
   const { propertyId, reviewId } = req.params
@@ -52,7 +61,7 @@ const update = async (req, res, next) => {
       (review) => review.id === reviewId
     )
     if (
-      reviewToUpdate.createdBy.toString() !== userId &&
+      reviewToUpdate.createdBy !== userId &&
       req.currentUser.role !== "admin"
     ) {
       return res.status(403).json({
@@ -71,7 +80,7 @@ const update = async (req, res, next) => {
 
     return res.status(200).json({
       message: "Review has been updated",
-      updatedComment: property.reviews.find((review) => review.id === reviewId),
+      updatedreview: property.reviews.find((review) => review.id === reviewId),
     })
   } catch (error) {
     next(error)
@@ -83,8 +92,8 @@ const update = async (req, res, next) => {
 //remove
 
 const remove = async (req, res, next) => {
-  const { propertyId, reviewId } = req.params;
-  const { id: userId } = req.currentUser;
+  const { propertyId, reviewId } = req.params
+  const { id: userId } = req.currentUser
   // console.log({ propertyId })
   // console.log({ reviewId })
   // console.log({ userId })
@@ -93,8 +102,8 @@ const remove = async (req, res, next) => {
     const property = await PropertyModel.findById(propertyId)
 
 
-    // can the user actually delete the comment?
-    // find the specified comment in array
+    // can the user actually delete the review?
+    // find the specified review in array
     // and check whether createdBy === req.currentUser.id
     // or whether the currentUser is admin. If both is false
     // return 403 - Forbidden
@@ -110,10 +119,10 @@ const remove = async (req, res, next) => {
       })
     }
 
-    // delete only the comment matching the Id in the request params
+    // delete only the review matching the Id in the request params
     property.reviews = property.reviews.filter(
       (review) => review.id !== reviewId
-    );
+    )
 
     // saving the update back to the database
     const updatedReview = await property.save()
