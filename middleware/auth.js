@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import CONSTS from "../const.js"
+import CONSTS from "../consts.js"
 import UserModel from "../models/user.js"
 
 const auth = async (req, res, next) => {
@@ -29,12 +29,12 @@ const auth = async (req, res, next) => {
       return res.status(401).json({ message: 'Token affiliated to user that does not exist anymore' })
     }
 
-  //  if user still exists and token was verified
-  // -> alter the request and attach "currentUser" property:
-  req.currentUser = authUser
-  next()
-  
-  } catch(error) {
+    //  if user still exists and token was verified
+    // -> alter the request and attach "currentUser" property:
+    req.currentUser = authUser
+    next()
+
+  } catch (error) {
     next(error)
   }
 

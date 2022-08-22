@@ -1,4 +1,4 @@
-import PropertyModel from '../models/property'
+import PropertyModel from '../models/property.js'
 
 //create / post in "/allproperties/:id"
 const create = async (req, res, next) => {
