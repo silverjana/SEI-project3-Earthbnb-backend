@@ -15,10 +15,10 @@ const getIndividual = async (req, res, next) => {
   // with given ID
   try {
     const foundProperty = await PropertyModel.findById(id)
-    // .populate(
-    //   "createdBy",
-    //   "-password"
-    // )
+      .populate(
+        "createdBy",
+        "-password"
+      )
 
     if (!foundProperty) {
       return res
@@ -36,8 +36,8 @@ const getIndividual = async (req, res, next) => {
 
 
 
-// Create endpoint to create a new tapa in database
-// Get new tapa from request.body element
+// Create endpoint to create a new Property in database
+// Get new Property from request.body element
 const create = async (req, res) => {
   const { body: newProperty } = req
   try {
@@ -45,6 +45,7 @@ const create = async (req, res) => {
       ...newProperty,
       createdBy: req.currentUser.id,
     })
+    console.log(req.currentUser.id)
     return res.status(200).json(createdDocument)
   } catch (error) {
     return res.status(500).json({ message: "Something went wrong", error })
@@ -55,43 +56,44 @@ const create = async (req, res) => {
 // Similar with updating document - only the creator or admin are allowed to update
 
 const update = async (req, res, next) => {
-  const { propertyId: id } = req.params
-  const { body: updatedProperty } = req
 
+  // console.log("you are here trying to update property")
+
+  const { id } = req.params
+  console.log(id)
+  const { body: updatedProperty } = req
+  console.log(updatedProperty)
 
   try {
-    //first we need to find the document to update using mongoose method findById (to find id in DB) This is stored to a variable
     const documentToUpdate = await PropertyModel.findById(id)
 
-
-    // if this document cannot be found return this error message
     if (!documentToUpdate) {
-      return res.status(404).json({ message: `Property with id ${id} could not be found` })
+      return res.status(404).json({ message: `Property ${id} could not be found` })
     }
-    // now if the document's creator is not the same as the current user making the request && if the role of the current user making the request is not admin we need to return a message to say FORBIDDEN action: NB: the value of createdBy must be converted first into a String before we can compare datatypes. 
 
     if (
-      documentToUpdate.createdBy.toString() !== req.currentUser.id && req.currentUser.role !== "admin"
+      documentToUpdate.createdBy !== req.currentUser.id &&
+      req.currentUser.role !== "admin"
     ) {
-      return res.status(403).json({ message: "Forbidden. Not allowed to update this resource" })
+      return res
+        .status(403)
+        .json({ message: "Forbidden. Not allowed to update this resource" })
     }
-
-    // otherwise return the updatedDocument from the database once updated
 
     const updatedDocument = await PropertyModel.findByIdAndUpdate(id, updatedProperty, {
       new: true,
     })
-    return res.status(200).json(updatedDocument)
-  } catch (error) {
 
-    next(error)
+    return res.status(200).json(updatedDocument);
+  } catch (error) {
+    next(error);
   }
 }
 
 //delete
 
 const remove = async (req, res, next) => {
-  const { propertyId: id } = req.params
+  const { id } = req.params
 
   try {
 
