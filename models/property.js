@@ -22,6 +22,7 @@ const propertySchema = new mongoose.Schema({
   images: [],
   reviews: [reviewSchema],
   createdAt: { type: Date, default: Date.now() },
+  createdBy: { type: String },
 })
 
 export default mongoose.model("Property", propertySchema)

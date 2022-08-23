@@ -16,7 +16,7 @@ router
 
 //! routes for our individual properties
 router
-  .route("/all-properties/:id")
+  .route("/properties/:id")
   .get(propertiesController.getIndividual)
 
   .put(auth, propertiesController.update)
@@ -32,7 +32,7 @@ router
 router.route("/review/:propertyId").post(auth, reviewController.create)
 
 router
-  .route("/all-properties/:propertyId/:reviewId")
+  .route("/properties/:propertyId/:reviewId")
   .put(auth, reviewController.update)
   .delete(auth, reviewController.remove)
 

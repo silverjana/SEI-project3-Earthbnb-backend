@@ -8,17 +8,15 @@ const getAll = async (req, res, next) => {
 }
 
 const getIndividual = async (req, res, next) => {
-  // get the document id from the ur
+
   const { id } = req.params;
 
-  // use Mongoose.findById method to query document
-  // with given ID
+
   try {
-    const foundProperty = await PropertyModel.findById(id)
-    // .populate(
-    //   "createdBy",
-    //   "-password"
-    // )
+    const foundProperty = await PropertyModel.findById(id).populate(
+      'createdBy',
+      '-password'
+    )
 
     if (!foundProperty) {
       return res
@@ -48,7 +46,7 @@ const create = async (req, res) => {
     console.log(req.currentUser.id)
     return res.status(200).json(createdDocument)
   } catch (error) {
-    return res.status(500).json({ message: "Something went wrong", error })
+    return res.status(500).json({ message: 'Something went wrong', error })
   }
   // returning created database document with ID and createdAt property
 }

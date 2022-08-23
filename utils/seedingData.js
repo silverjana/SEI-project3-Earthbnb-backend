@@ -613,10 +613,7 @@ const properties = [
     ],
     reviews: [],
   }
-
-
-
-]
+].map((property) => ({ ...property, createdBy: users.user._id})
 
 export default { users, properties }
 
