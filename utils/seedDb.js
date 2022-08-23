@@ -16,7 +16,8 @@ const seed = async () => {
   )
   const dbUsers = await UserModel.create([
     seedingData.users.admin,
-    seedingData.users.user
+    seedingData.users.user,
+    seedingData.users.secondUser
   ])
   console.log(
     `${dbUsers.length} users have been created succesfully in the database`
