@@ -1,9 +1,10 @@
 import property from '../models/property.js'
 import PropertyModel from '../models/property.js'
+import UserModel from '../models/user.js'
+
 
 //create / post in "/allproperties/:id"
 const create = async (req, res, next) => {
-
 
   const { propertyId } = req.params
 
@@ -22,27 +23,34 @@ const create = async (req, res, next) => {
     if (
       // is the user trying to give a rating?
       req.body.rating &&
-      // has the user already rated the dish?
+      // has the user already rated the property?
       someReviewIsRated
     ) {
       return res.status(403).json({ message: "You already rated this property" })
     }
 
+    const user = await UserModel.findById(req.currentUser.id)
+
     // property is now a normal JavaScript object, so we can treat it as such.
     // meaning we can just push onto the existing reviews array.
-    const newreview = { ...req.body, createdBy: req.currentUser.id }
-    property.reviews.push(newreview)
+
+
+    const newReview = { ...req.body, createdBy: req.currentUser.id }
+    property.reviews.push(newReview)
+    user.reviews.push(newReview)
+
     // at this point (line 26) we haven't saved our document back to the
     // database! We have only added a review on the array that is
     // attached to the propertys JS object.
     // Next line saves it to the database.
     await property.save()
+    await user.save()
 
     // console.log(req.currentUser.id)
     // console.log(req.body)
     return res.status(200).json({
       message: "review successfully created!",
-      createdreview: newreview,
+      createdreview: newReview,
     })
   } catch (error) {
     next(error)

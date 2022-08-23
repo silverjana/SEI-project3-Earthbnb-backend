@@ -87,13 +87,13 @@ const login = async (req, res, next) => {
 }
 
 //! userdata
-const userData = async ( req, res, next) => {
-  
+const userData = async (req, res, next) => {
+
   const { userName, _id } = req.currentUser
 
   const myProperties = await PropertyModel.find({ createdBy: _id })
 
-  const myReviews = await PropertyModel.find( { reviews: { createdBy: _id } })
+  const myReviews = await PropertyModel.find({ reviews: { createdBy: _id } })
 
   return res.status(200).json({ userName, myProperties, myReviews })
 }

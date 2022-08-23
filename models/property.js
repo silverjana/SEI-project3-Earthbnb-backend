@@ -2,7 +2,7 @@
 import mongoose from "mongoose"
 
 //schema for review
-const reviewSchema = new mongoose.Schema({
+export const reviewSchema = new mongoose.Schema({
   title: { type: String, required: true },
   text: { type: String, required: true },
   rating: Number,
