@@ -31,12 +31,15 @@ router
 //! reviews
 router.route("/review/:propertyId").post(auth, reviewController.create)
 
+//reviews?
+//propertyId in body?
+
 router
   .route("/properties/:propertyId/:reviewId")
   .put(auth, reviewController.update)
   .delete(auth, reviewController.remove)
 
-
+//reviews/:reviewId endpoint
 
 //! user routes 
 router.route("/register").post(userController.register)
