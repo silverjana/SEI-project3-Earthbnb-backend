@@ -42,7 +42,7 @@ router
 router.route("/register").post(userController.register)
 router.route("/login").post(userController.login)
 
-//router.route("/:userid").get(userController.userData)
+router.route("/user-profile").get(auth, userController.userData)
 
 
 export default router

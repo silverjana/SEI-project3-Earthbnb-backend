@@ -2,7 +2,8 @@ import UserModel from "../models/user.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import CONSTS from "../consts.js"
-import user from "../models/user.js"
+
+import PropertyModel from '../models/property.js'
 
 //register
 
@@ -86,9 +87,18 @@ const login = async (req, res, next) => {
 }
 
 //! userdata
+const userData = async ( req, res, next) => {
+  const { userName, _id }= req.currentUser
+
+  const myProperties = await PropertyModel.find({createdBy: _id})
+
+  const myReviews = await PropertyModel.find({reviews: {createdBy: _id }})
+
+  return res.status(200).json({userName}, {myProperties}, {myReviews})
+}
 
 // export for routes that require userController: 
 // router.route("/register").post(userController.register)
 // router.route("/login").post(userController.login)
 
-export default { register, login }
+export default { register, login, userData }
