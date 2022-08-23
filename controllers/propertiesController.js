@@ -15,10 +15,10 @@ const getIndividual = async (req, res, next) => {
   // with given ID
   try {
     const foundProperty = await PropertyModel.findById(id)
-      .populate(
-        "createdBy",
-        "-password"
-      )
+    // .populate(
+    //   "createdBy",
+    //   "-password"
+    // )
 
     if (!foundProperty) {
       return res
