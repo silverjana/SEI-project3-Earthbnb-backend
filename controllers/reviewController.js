@@ -34,20 +34,14 @@ const create = async (req, res, next) => {
     // property is now a normal JavaScript object, so we can treat it as such.
     // meaning we can just push onto the existing reviews array.
 
-
     const newReview = { ...req.body, createdBy: req.currentUser.id }
     property.reviews.push(newReview)
     user.reviews.push(newReview)
 
-    // at this point (line 26) we haven't saved our document back to the
-    // database! We have only added a review on the array that is
-    // attached to the propertys JS object.
-    // Next line saves it to the database.
+    // Next line saves to the database
     await property.save()
     await user.save()
 
-    // console.log(req.currentUser.id)
-    // console.log(req.body)
     return res.status(200).json({
       message: "review successfully created!",
       createdreview: newReview,
@@ -80,6 +74,7 @@ const update = async (req, res, next) => {
       })
     }
 
+    //update property
     property.reviews = property.reviews.map((review) => {
       if (review.id === reviewId) {
         return { ...review, ...updatedReview }
@@ -88,7 +83,21 @@ const update = async (req, res, next) => {
       }
     })
 
+    //update user
+    const user = await UserModel.findById(userId)
+
+    user.reviews = user.reviews.map((review) => {
+      if (review.id === reviewId) {
+        return { ...review, ...updatedReview }
+      } else {
+        return review
+      }
+    })
+
+    //save property
     await property.save()
+    //save user
+    await user.save()
 
     return res.status(200).json({
       message: "review has been updated",
@@ -118,15 +127,24 @@ const remove = async (req, res, next) => {
       })
     }
 
+    // filter prop reviews
     property.reviews = property.reviews.filter(
+      (review) => review.id !== reviewId
+    )
+    //filter user rev
+    const user = await UserModel.findById(userId)
 
+    user.reviews = user.reviews.filter(
       (review) => review.id !== reviewId
     )
 
-    const updatedproperty = await property.save()
+    //save prop
+    await property.save()
+    //save user
+    await user.save()
+
     return res.status(200).json({
       message: "Comment successfully deleted",
-      updatedReviews: updatedproperty.reviews,
     })
   } catch (error) {
     next(error)
