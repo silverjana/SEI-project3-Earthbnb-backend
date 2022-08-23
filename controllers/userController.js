@@ -95,9 +95,6 @@ const userData = async (req, res, next) => {
   //get all the properties created
   const myProperties = await PropertyModel.find({ createdBy: _id })
 
-
-
-
   // const myReviews = await UserModel.find({ reviews: { createdBy: _id } })
 
   return res.status(200).json({ userName, myProperties, myReviews })
