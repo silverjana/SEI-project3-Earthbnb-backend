@@ -25,7 +25,7 @@ const create = async (req, res, next) => {
       // has the user already rated the dish?
       someReviewIsRated
     ) {
-      return res.status(403).json({ message: "You already rated this dish" })
+      return res.status(403).json({ message: "You already rated this property" })
     }
 
     // property is now a normal JavaScript object, so we can treat it as such.

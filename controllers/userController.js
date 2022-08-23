@@ -94,11 +94,12 @@ const userData = async ( req, res, next) => {
 
   const myReviews = await PropertyModel.find({reviews: {createdBy: _id }})
 
-  return res.status(200).json({userName}, {myProperties}, {myReviews})
+  return res.status(200).json({userName, myProperties, myReviews})
 }
 
 // export for routes that require userController: 
 // router.route("/register").post(userController.register)
 // router.route("/login").post(userController.login)
+// router.route("/user-profile").get(auth, userController.userData)
 
 export default { register, login, userData }
