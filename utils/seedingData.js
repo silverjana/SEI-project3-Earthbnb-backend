@@ -559,7 +559,7 @@ const properties = [
   {
     name: "PURE Farmhouse - Charme Design House in Tuscany",
     type: "country",
-    description: "",
+    description: "My place is close to Volterra, great panoramic views, restaurants, family activities. My place is good for couples, lonely adventurers, business travelers, families (with kids), large groups, and furry friends (pets).",
     price: 157,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
@@ -613,7 +613,7 @@ const properties = [
     ],
     reviews: [],
   }
-].map((property) => ({ ...property, createdBy: users.user._id})
+].map((property) => ({ ...property, createdBy: users.user._id }))
 
 export default { users, properties }
 

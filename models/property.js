@@ -11,7 +11,7 @@ const reviewSchema = new mongoose.Schema({
 
 const propertySchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
-  type: { type: String, enum: ["beach", "cabin", "camping", "art city", "chalet"], required: true },
+  type: { type: String, enum: ["beach", "cabin", "camping", "city", "chalet", "country"], required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
   date_start: { type: Date, },
