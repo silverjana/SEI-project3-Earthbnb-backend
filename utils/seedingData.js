@@ -31,7 +31,7 @@ const properties = [
     price: 600,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Beach View", "Sea view", "Kitchen", "Off-Street Parking", "Washing Machine", "Essentials"],
     latitude: 51.720519111737474,
     longitude: 0.7694616554730438,
     images: [
@@ -39,7 +39,7 @@ const properties = [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661165971/Properties%20/beach%20front%20property%201/0eb3bccb-3d4e-40ca-9a32-4fc1b15c1d7c_dqqrzt.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661165984/Properties%20/beach%20front%20property%201/6240bb55-8b09-42c1-af00-2b348cdd9381_esr8fn.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661165948/Properties%20/beach%20front%20property%201/61875e5e-0dc0-49a9-b279-1f36b86415af_uvt3tv.jpg",
-      "https://res.cloudinary.com/aaf-proj3/image/upload/v1661165984/Properties%20/beach%20front%20property%201/6240bb55-8b09-42c1-af00-2b348cdd9381_esr8fn.jpg"
+      "https://res.cloudinary.com/aaf-proj3/image/upload/v1661166010/Properties%20/beach%20front%20property%201/14220934-e49e-4819-aeb4-f74278ac4fc7_cve10f.jpg"
     ],
     reviews: [],
   },
@@ -50,7 +50,7 @@ const properties = [
     price: 400,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Beach View", "Dish Washer", "Bed Linen", "Off-Street Parking", "Washing Machine", "Essentials"],
     latitude: 50.85358608332615,
     longitude: 0.5707389097023114,
     images: [
@@ -69,7 +69,7 @@ const properties = [
     price: 400,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Beach View", "Sea view", "Kitchen", "Off-Street Parking", "Iron", "Essentials"],
     latitude: 46.39802021451435,
     longitude: 6.769366939782603,
     images: [
@@ -88,7 +88,7 @@ const properties = [
     price: 300,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Beach View", "Sea view", "Heating", "Off-Street Parking", "Pet-Friendly", "Essentials"],
     latitude: 50.96335338614811,
     longitude: 0.9642299188120586,
     images: [
@@ -107,7 +107,7 @@ const properties = [
     price: 500,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Beach View", "Sea view", "Kitchen", "Off-Street Parking", "Cleaning Products", "Extra Pillows"],
     latitude: 48.62433583334695,
     longitude: -2.2448688838679476,
     images: [
@@ -126,7 +126,7 @@ const properties = [
     price: 100,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Beach View", "Local Shops", "Kitchen", "Off-Street Parking", "Dish Washer", "Essentials"],
     latitude: 49.63119941682037,
     longitude: -1.849489439660982,
     images: [
@@ -145,7 +145,7 @@ const properties = [
     price: 75,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Mountain View", "Hot Water", "Shower", "Off-Street Parking", "Local Shop", "Essentials"],
     latitude: 40.836766131762054,
     longitude: 29.521088248135253,
     images: [
@@ -164,12 +164,12 @@ const properties = [
     price: 90,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Local Beach", "Fire Pit", "Kitchen", "Off-Street Parking", "Shower", "Essentials"],
     latitude: 50.35645547883744,
     longitude: -4.567041674624171,
     images: [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661176551/Properties%20/cabin/cabin%202/52f9c7cd-d8e9-4476-b28d-4dce33c38cde_tmvje4.jpg",
-      "https://res.cloudinary.com/aaf-proj3/image/upload/v1661176551/Properties%20/cabin/cabin%202/52f9c7cd-d8e9-4476-b28d-4dce33c38cde_tmvje4.jpg",
+      "https://res.cloudinary.com/aaf-proj3/image/upload/v1661176561/Properties%20/cabin/cabin%202/6b7edb31-e0a0-488a-b652-ebf81181c25c_sc2lvj.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661176537/Properties%20/cabin/cabin%202/99b445db-b7db-43b0-8a09-59a240cd6e97_kxha1j.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661176523/Properties%20/cabin/cabin%202/df4bc621-5cb3-4d17-a689-23ad07b06d72_kb0atp.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661176513/Properties%20/cabin/cabin%202/d788601f-60cd-497f-9f69-9ed1972cf632_w49uoe.jpg"
@@ -183,7 +183,7 @@ const properties = [
     price: 70,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Pizza Oven", "Hot Tub", "Kitchen", "Off-Street Parking", "Hot Water", "Essentials"],
     latitude: 50.60550827589096,
     longitude: -4.77578190390656,
     images: [
@@ -202,7 +202,7 @@ const properties = [
     price: 50,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["BBQ", "Hot Water", "Kitchen", "Off-Street Parking", "Kettle", "Essentials"],
     latitude: 54.187390112155086,
     longitude: -3.1264594137407875,
     images: [
@@ -221,7 +221,7 @@ const properties = [
     price: 90,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Hot Tub", "Wifi", "Kitchen", "Off-Street Parking", "Washing Machine", "Essentials"],
     latitude: 56.59204599642131,
     longitude: -4.263544362080776,
     images: [
@@ -240,7 +240,7 @@ const properties = [
     price: 200,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Hot Water", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: 54.8853344494695,
     longitude: -7.531976980340409,
     images: [
@@ -259,7 +259,7 @@ const properties = [
     price: 120,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Under-floor Heating", "Hot Water", "Wifi", "Kitchen Area", "TV", "Essentials"],
     latitude: 50.62772800849081,
     longitude: -4.757929164024135,
     images: [
@@ -278,7 +278,7 @@ const properties = [
     price: 120,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Hot Water", "Wifi", "Bed Linen", "Kitchen", "Essentials"],
     latitude: 50.37266190934886,
     longitude: -4.241571754746647,
     images: [
@@ -297,7 +297,7 @@ const properties = [
     price: 173,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Fire-Pit", "Hot Water", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: 51.10959869103719,
     longitude: 1.2131401500687513,
     images: [
@@ -316,7 +316,7 @@ const properties = [
     price: 95,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Indoor-fireplace", "Fire-Pit", "Parking", "Bed Linen", "Cot", "Essentials"],
     latitude: 53.12950925071951,
     longitude: -1.0994818549779153,
     images: [
@@ -335,7 +335,7 @@ const properties = [
     price: 125,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Kitchen", "Washer", "Wifi", "Bed Linen", "Parking", "Essentials"],
     latitude: 51.187785059224616,
     longitude: 0.5676182167173807,
     images: [
@@ -354,7 +354,7 @@ const properties = [
     price: 230,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Hot Tub", "Private Bathroom", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: 51.61273565058517,
     longitude: -2.1075524908424668,
     images: [
@@ -373,7 +373,7 @@ const properties = [
     price: 122,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Washer", "Hot Water", "Wifi", "Bed Linen", "Dryer", "Kitchen"],
     latitude: 49.2407410805408,
     longitude: -123.07251845421523,
     images: [
@@ -392,7 +392,7 @@ const properties = [
     price: 89,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Sea View", "Hot Water", "Wifi", "Parking", "Cot", "Essentials"],
     latitude: 49.330319399625274,
     longitude: -122.96540173481128,
     images: [
@@ -411,7 +411,7 @@ const properties = [
     price: 67,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Hot Water", "Wifi", "Washer", "Dryer", "Essentials"],
     latitude: 60.20758654002718,
     longitude: 24.955488978485455,
     images: [
@@ -430,7 +430,7 @@ const properties = [
     price: 40,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Air Conditioning", "Hot Water", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: -34.03585948971037,
     longitude: 18.758830822180656,
     images: [
@@ -449,7 +449,7 @@ const properties = [
     price: 74,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Kitchen", "Wifi", "Bed Linen", "Lift", "Essentials"],
     latitude: -34.06316778774838,
     longitude: 18.778056895027596,
     images: [
@@ -468,7 +468,7 @@ const properties = [
     price: 364,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Shower", "Wifi", "Bed Linen", "Lift", "Essentials"],
     latitude: 1.3668533569520518,
     longitude: 103.72476286820525,
     images: [
@@ -487,7 +487,7 @@ const properties = [
     price: 177,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Hot Tub", "Wifi", "Bed Linen", "TV", "Essentials"],
     latitude: 37.67573338254869,
     longitude: -122.41174119951656,
     images: [
@@ -506,7 +506,7 @@ const properties = [
     price: 1000,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Heating", "Washer", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: 44.66710814506551,
     longitude: 1.1516816884158383,
     images: [
@@ -525,7 +525,7 @@ const properties = [
     price: 120,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Lake View", "Pet-Friendly", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: 45.67389409443056,
     longitude: 11.069368491041265,
     images: [
@@ -544,7 +544,7 @@ const properties = [
     price: 187,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Kitchen", "Mountain-View", "Wifi", "Bed Linen", "Washer", "Essentials"],
     latitude: 42.73727449271468,
     longitude: 0.3467123131593386,
     images: [
@@ -563,7 +563,7 @@ const properties = [
     price: 157,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Pet-Friendly", "Hot Water", "Wifi", "Bed Linen", "Kitchen", "Essentials"],
     latitude: 43.31568343188,
     longitude: 10.98487060862,
     images: [
@@ -582,7 +582,7 @@ const properties = [
     price: 124,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Swimming Pool", "Restaurant", "Wifi", "Bed Linen", "Cot", "Essentials"],
     latitude: 42.25879794674901,
     longitude: 12.125817297854491,
     images: [
@@ -601,7 +601,7 @@ const properties = [
     price: 88,
     date_start: "04/11/2022",
     date_end: "11/12/2022",
-    amenities: "",
+    amenities: ["Pet-Friendly", "Valley View", "Wifi", "Bed Linen", "Washer", "Essentials"],
     latitude: 50.567150500421896,
     longitude: -4.425648841772776,
     images: [
