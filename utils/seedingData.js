@@ -19,9 +19,55 @@ const users = {
     password: await hashPassword("1234"),
     role: "user",
     _id: "0fc2faa7725e24f505da6c3e",
+    reviews: [
+      {
+        title: "Beautiful property",
+        text: "We loved our stay here, this apartment is perfectly located close to Florence, Pisa, Lucca, Pistoia and many other beautiful Tuscan towns and villages. The apartment was comfortable, clean and with all amenities you need. We loved the large swimming pool which was also very clean. Francesco was an excellent host and gave us delicious wine and oil on our arrival. The recommendations for restaurants were excellent. We hope to come back thank you Francesco!],",
+        rating: 5,
+        createdBy: "0fc2faa7725e24f505da6c3e",
+      },
+      {
+        title: "Wonderful",
+        text: "A wonderful stay! It certainly is dog friendly - Julie was so welcoming to us and our Bull Terrier, ensuring we felt comfortable from the start. The field is completely secure and there is even a whole box of toys for doggies to enjoy!    It’s even better than the pictures. The cosy hut has a comfortable bed with a mini hob and kettle for night time tea and outdoor shower and sink. There is also a stable block opposite with a living room, kitchen and bathroom. There are lots of places to sit including sunny spots and shaded areas overlooking a duck pond and fields. The hammock was great as was the mini hut - so cute!",
+        rating: 4,
+        createdBy: "0fc2faa7725e24f505da6c3e",
+      },
+    ]
+  },
+  secondUser: {
+    email: "user2@user.com",
+    userName: "Jane",
+    password: await hashPassword("1234"),
+    role: "user",
+    _id: "0fc2faa7725e24f505da7d4f",
+    reviews: [{
+      title: "Lovely stay",
+      text: "Thank you so much for looking after us, on our stay with you. Rooms were excellent and the food just superb, The views from the hotel are amazing overlooking the fields and the sea. Nothing was too much trouble and we had a great time. Special thanks to Millie who sorted out everything we needed for us adults and the kiddies. See you again..",
+      rating: 5,
+      createdBy: "0fc2faa7725e24f505da7d4f",
+    },
+    {
+      title: "Location",
+      text: "My wife and I stayed here for five nights at the end of September. The hotel is in a quiet area and is very conveniently located near the Fort, and a host of good restaurant options. From this base, we walked all over the old city and beaches. Marielle was helpful from the beginning of our selection of a room through the end of our stay when she arranged a taxi to take us to the airport. In between, she was a cheerful hostess with lots to offer first time visitors. Her property is very clean! We had a wonderful stay.",
+      rating: 4,
+      createdBy: "0fc2faa7725e24f505da7d4f",
+    },
+    {
+      title: "Low key hen party",
+      text: "We booked this accommodation for an event which was cancelled because of Covid but we continued with the stay. The two women who welcomed me were lovely and helpful with instructions and suggestions for a good stay.  The little touches like breakfast bits and a prepared fire pit were great. Everything was very clean and the shower (and water from the kitchen tap) was nice and hot. You really need to wrap up warm to sleep, because it is still camping, but it might also be an idea to bring a sleep mask and ear plugs if you are a light sleeper - it did get noisy. The air beds were amazing - all 5 stayed inflated for both nights which I’ve never experienced before.  All in all thoroughly recommended.",
+      rating: 5,
+      createdBy: "0fc2faa7725e24f505da7d4f",
+    },
+    ]
   },
 }
 
+// {
+// title: "",
+//   text: "",
+//   rating: 4,
+//   createdBy: ,
+// },
 
 const properties = [
   {
@@ -41,7 +87,13 @@ const properties = [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661165948/Properties%20/beach%20front%20property%201/61875e5e-0dc0-49a9-b279-1f36b86415af_uvt3tv.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661166010/Properties%20/beach%20front%20property%201/14220934-e49e-4819-aeb4-f74278ac4fc7_cve10f.jpg"
     ],
-    reviews: [],
+    reviews: [{
+      title: "Lovely stay",
+      text: "Thank you so much for looking after us, on our stay with you. Rooms were excellent and the food just superb, The views from the hotel are amazing overlooking the fields and the sea. Nothing was too much trouble and we had a great time. Special thanks to Millie who sorted out everything we needed for us adults and the kiddies. See you again..",
+      rating: 5,
+      createdBy: "0fc2faa7725e24f505da7d4f",
+    },
+    ],
   },
   {
     name: "Luxury Victorian Beach House",
@@ -136,7 +188,12 @@ const properties = [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661169174/Properties%20/Beach/beach%206/9860b858_original_hpdb6r.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661169127/Properties%20/Beach/beach%206/36db2371-fd39-4b30-9a61-9a7685854916_hm81jd.jpg"
     ],
-    reviews: [],
+    reviews: [{
+      title: "Location",
+      text: "My wife and I stayed here for five nights at the end of September. The hotel is in a quiet area and is very conveniently located near the Fort, and a host of good restaurant options. From this base, we walked all over the old city and beaches. Marielle was helpful from the beginning of our selection of a room through the end of our stay when she arranged a taxi to take us to the airport. In between, she was a cheerful hostess with lots to offer first time visitors. Her property is very clean! We had a wonderful stay.",
+      rating: 4,
+      createdBy: "0fc2faa7725e24f505da7d4f",
+    },],
   },
   {
     name: "Perla bungalov",
@@ -288,7 +345,12 @@ const properties = [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661178649/Properties%20/camping/camping%202/0c65ed13-aca2-411e-b194-8fa82d40cf15_fjuboi.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661178718/Properties%20/camping/camping%202/77ba01a8-3f0c-44b6-b1a1-c35be0b5f9e3_vuqkqm.jpg",
     ],
-    reviews: [],
+    reviews: [{
+      title: "Low key hen party",
+      text: "We booked this accommodation for an event which was cancelled because of Covid but we continued with the stay. The two women who welcomed me were lovely and helpful with instructions and suggestions for a good stay.  The little touches like breakfast bits and a prepared fire pit were great. Everything was very clean and the shower (and water from the kitchen tap) was nice and hot. You really need to wrap up warm to sleep, because it is still camping, but it might also be an idea to bring a sleep mask and ear plugs if you are a light sleeper - it did get noisy. The air beds were amazing - all 5 stayed inflated for both nights which I’ve never experienced before.  All in all thoroughly recommended.",
+      rating: 5,
+      createdBy: "0fc2faa7725e24f505da7d4f",
+    },],
   },
   {
     name: "La Vue - most amazing views!",
@@ -592,7 +654,12 @@ const properties = [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661192534/Properties%20/country/country5/a2c9b360-2c3d-425f-8d86-69c64017227c_bj6xwb.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661192589/Properties%20/country/country5/5284d8ce-ec8a-460d-a6fb-f5ce9e15b5f1_jvzqb5.jpg",
     ],
-    reviews: [],
+    reviews: [{
+      title: "Beautiful property",
+      text: "We loved our stay here, this apartment is perfectly located close to Florence, Pisa, Lucca, Pistoia and many other beautiful Tuscan towns and villages. The apartment was comfortable, clean and with all amenities you need. We loved the large swimming pool which was also very clean. Francesco was an excellent host and gave us delicious wine and oil on our arrival. The recommendations for restaurants were excellent. We hope to come back thank you Francesco!],",
+      rating: 5,
+      createdBy: "0fc2faa7725e24f505da6c3e",
+    },]
   },
   {
     name: "Skyber Barn - luxury dog-friendly barn conversion",
@@ -611,7 +678,13 @@ const properties = [
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661192770/Properties%20/country/country6/b472e2d1-a6d5-4b21-9347-be5ac30f29f2_gu43co.jpg",
       "https://res.cloudinary.com/aaf-proj3/image/upload/v1661192745/Properties%20/country/country6/bed51c09-a4a1-4b90-9ae3-fcdb2ea3a32f_wsnt2t.jpg",
     ],
-    reviews: [],
+    reviews: [{
+      title: "Wonderful",
+      text: "A wonderful stay! It certainly is dog friendly - Julie was so welcoming to us and our Bull Terrier, ensuring we felt comfortable from the start. The field is completely secure and there is even a whole box of toys for doggies to enjoy!    It’s even better than the pictures. The cosy hut has a comfortable bed with a mini hob and kettle for night time tea and outdoor shower and sink. There is also a stable block opposite with a living room, kitchen and bathroom. There are lots of places to sit including sunny spots and shaded areas overlooking a duck pond and fields. The hammock was great as was the mini hut - so cute!",
+      rating: 4,
+      createdBy: "0fc2faa7725e24f505da6c3e",
+    },
+    ],
   }
 ].map((property) => ({ ...property, createdBy: users.user._id }))
 
@@ -636,3 +709,4 @@ export default { users, properties }
 //   ],
 //   reviews: [],
 // },
+

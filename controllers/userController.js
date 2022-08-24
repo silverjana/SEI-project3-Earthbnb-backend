@@ -90,14 +90,14 @@ const login = async (req, res, next) => {
 //! userdata
 const userData = async (req, res, next) => {
 
-  const { reviews: myReviews, userName, _id } = req.currentUser
+  const {  _id } = req.currentUser
   
   //get all the properties created
   const myProperties = await PropertyModel.find({ createdBy: _id })
+  // get username and reviews
+  const user = UserModel.findById(req.currentUser.id).select("userName reviews")
 
-  // const myReviews = await UserModel.find({ reviews: { createdBy: _id } })
-
-  return res.status(200).json({ userName, myProperties, myReviews })
+  return res.status(200).json({ ...user, myProperties,}) // ok why spread? so we can access drectly in frontend?
 }
 
 // export for routes that require userController: 
