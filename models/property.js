@@ -17,7 +17,7 @@ const propertySchema = new mongoose.Schema({
   price: { type: Number, required: true },
   date_start: { type: Date, },
   date_end: { type: Date, },
-  amenities: String,
+  amenities: [],
   longitude: Number,
   latitude: Number,
   images: [],
