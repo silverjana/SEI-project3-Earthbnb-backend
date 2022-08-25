@@ -27,6 +27,7 @@ router
 router
   .route("/add-property")
   .post(auth, propertiesController.create)
+  // .post(auth, imagesController.create)
 
 //! reviews
 router.route("/review/:propertyId").post(auth, reviewController.create)
