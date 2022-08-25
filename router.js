@@ -30,15 +30,16 @@ router
   // .post(auth, imagesController.create)
 
 //! reviews
-router.route("/review/:propertyId").post(auth, reviewController.create)
+router.route("/:propertyId/review").post(auth, reviewController.create)
 
 //reviews?
 //propertyId in body?
 
 router
-  .route("/properties/:propertyId/:reviewId")
+  .route("/properties/:propertyId/reviews/:reviewId")
   .put(auth, reviewController.update)
   .delete(auth, reviewController.remove)
+  .get(auth, reviewController.sendOne )
 
 
 //reviews/:reviewId endpoint
