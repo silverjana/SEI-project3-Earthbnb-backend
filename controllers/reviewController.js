@@ -155,6 +155,7 @@ const remove = async (req, res, next) => {
 const sendOne = async (req, res, next) => {
   const { propertyId, reviewId } = req.params
 
+  let reviewToSend= "Hello"
   try {
     const property = await PropertyModel.findById(propertyId)
     const reviewToSend = property.reviews.find(
@@ -172,7 +173,7 @@ const sendOne = async (req, res, next) => {
     next(error)
   }
 
-  return res.status(200).json({review: reviewToSend})
+  return res.status(200).json({oldReview: reviewToSend})
 
 }
 
