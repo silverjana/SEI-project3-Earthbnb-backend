@@ -34,11 +34,12 @@ const create = async (req, res, next) => {
     // property is now a normal JavaScript object, so we can treat it as such.
     // meaning we can just push onto the existing reviews array.
 
-    const newReview = { ...req.body, createdBy: req.currentUser.id }
+    const newReview = { ...req.body, createdBy: req.currentUser.id, propertyId: propertyId }
+    //push to property and user
     property.reviews.push(newReview)
     user.reviews.push(newReview)
 
-    // Next line saves to the database
+    // save property and user to db
     await property.save()
     await user.save()
 
