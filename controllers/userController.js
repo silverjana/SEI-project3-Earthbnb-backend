@@ -90,24 +90,50 @@ const login = async (req, res, next) => {
 //! userdata
 const userData = async (req, res, next) => {
 
-  const {  _id } = req.currentUser
-  
+  const { _id } = req.currentUser
+
   //get all the properties created
   const myProperties = await PropertyModel.find({ createdBy: _id })
   //console.log( {myProperties} )
-  
+
   // get username and reviews
   const user = await UserModel.findById(req.currentUser.id).select("userName reviews").lean()
 
   //console.log({user})
 
-  return res.status(200).json({ ...user, myProperties,}) // ok why spread? so we can access drectly in frontend?
- 
+  return res.status(200).json({ ...user, myProperties, }) // ok why spread? so we can access drectly in frontend?
+
 }
+
+
+//router.route("/user/:reviewId").get(auth, userController.sendOne )
+const sendOne = async (req, res, next) => {
+  const { reviewId } = req.params
+
+  let reviewToSend
+  try {
+
+    const user = await UserModel.findById(req.currentUser.id).select("reviews").lean()
+
+    console.log("reviews:", user.reviews)
+
+    const reviewToSend = user.reviews.find(
+      (review) => review._id.toString() === reviewId
+    )
+    console.log({ reviewToSend })
+
+    return res.status(200).json({ oldReview: reviewToSend })
+
+  } catch (error) {
+    console.log("within controller", error)
+    next(error)
+  }
+}
+
 
 // export for routes that require userController: 
 // router.route("/register").post(userController.register)
 // router.route("/login").post(userController.login)
 // router.route("/user-profile").get(auth, userController.userData)
 
-export default { register, login, userData }
+export default { register, login, userData, sendOne }

@@ -152,36 +152,5 @@ const remove = async (req, res, next) => {
   }
 }
 
-const sendOne = async (req, res, next) => {
-  const { propertyId, reviewId } = req.params
-  let reviewToSend
-  try {
-    const property = await PropertyModel.findById(propertyId)
-    console.log("reviews:",property.reviews)
-    const reviewToSend = property.reviews.find(
-      (review) => review.id.toString() === reviewId
-    )
-      console.log({reviewToSend})
-    if (
-      reviewToSend.createdBy.toString() !== userId &&
-      req.currentUser.role !== "admin"
-    ) {
-      return res.status(403).json({
-        message: "Forbidden. Not admin or user who created this review",
-      })
-    }
 
-    return res.status(200).json({oldReview: reviewToSend})
-
-
-  } catch (error) {
-    console.log("within controller", error)
-    next(error)
-
-  }
-
- 
-
-}
-
-export default { create, update, remove, sendOne }
+export default { create, update, remove }
