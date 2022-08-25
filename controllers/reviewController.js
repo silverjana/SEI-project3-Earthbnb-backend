@@ -55,7 +55,8 @@ const update = async (req, res, next) => {
 
   const { propertyId, reviewId } = req.params
 
-  console.log(propertyId, reviewId)
+  //console.log("params work: ", propertyId, reviewId)
+
   const updatedReview = req.body
   console.log(req.body)
   const { id: userId } = req.currentUser
@@ -66,14 +67,17 @@ const update = async (req, res, next) => {
     const reviewToUpdate = property.reviews.find(
       (review) => review.id === reviewId
     )
-    if (
-      reviewToUpdate.createdBy.toString() !== userId &&
-      req.currentUser.role !== "admin"
-    ) {
-      return res.status(403).json({
-        message: "Forbdiden. Not admin or user who created this review",
-      })
-    }
+    console.log()
+
+    //!user is logged in to access myreviews
+    // if (
+    //   reviewToUpdate.createdBy.toString() !== userId &&
+    //   req.currentUser.role !== "admin"
+    // ) {
+    //   return res.status(403).json({
+    //     message: "Forbdiden. Not admin or user who created this review",
+    //   })
+    // }
 
     //update property
     property.reviews = property.reviews.map((review) => {

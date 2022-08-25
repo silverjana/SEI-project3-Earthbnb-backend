@@ -40,7 +40,6 @@ router
   .put(auth, reviewController.update)
   .delete(auth, reviewController.remove)
 
-
 //reviews/:reviewId endpoint
 
 //! user routes 
