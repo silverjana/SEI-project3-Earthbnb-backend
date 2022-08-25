@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
   // we're grabbing the raw token from the authorization header
   const rawToken = req.headers.authorization
 
-  console.log("HEADERS", req.headers)
+  //console.log("HEADERS", req.headers)
 
 
   if (!rawToken) {

@@ -94,12 +94,12 @@ const userData = async (req, res, next) => {
   
   //get all the properties created
   const myProperties = await PropertyModel.find({ createdBy: _id })
-  console.log( {myProperties} )
+  //console.log( {myProperties} )
   
   // get username and reviews
   const user = await UserModel.findById(req.currentUser.id).select("userName reviews").lean()
 
-  console.log({user})
+  //console.log({user})
 
   return res.status(200).json({ ...user, myProperties,}) // ok why spread? so we can access drectly in frontend?
  

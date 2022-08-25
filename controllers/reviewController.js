@@ -157,9 +157,11 @@ const sendOne = async (req, res, next) => {
 
   try {
     const property = await PropertyModel.findById(propertyId)
+    console.log("reviews:",property.reviews)
     const reviewToSend = property.reviews.find(
-      (review) => review.id === reviewId
+      (review) => review.id.toString() === reviewId
     )
+      console.log({reviewToSend})
     if (
       reviewToSend.createdBy.toString() !== userId &&
       req.currentUser.role !== "admin"
@@ -168,11 +170,17 @@ const sendOne = async (req, res, next) => {
         message: "Forbidden. Not admin or user who created this review",
       })
     }
+
+    return res.status(200).json({oldReview: reviewToSend})
+
+
   } catch (error) {
+    console.log("within controller", error)
     next(error)
+
   }
 
-  return res.status(200).json({review: reviewToSend})
+ 
 
 }
 
