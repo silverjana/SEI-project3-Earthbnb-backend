@@ -39,7 +39,6 @@ router
   .route("/properties/:propertyId/reviews/:reviewId")
   .put(auth, reviewController.update)
   .delete(auth, reviewController.remove)
-  .get(auth, reviewController.sendOne )
 
 
 //reviews/:reviewId endpoint
@@ -49,6 +48,8 @@ router.route("/register").post(userController.register)
 router.route("/login").post(userController.login)
 
 router.route("/user-profile").get(auth, userController.userData)
+
+router.route("/user/:reviewId").get(auth, userController.sendOne )
 
 
 export default router
