@@ -5,6 +5,7 @@ import mongoose from "mongoose"
 export const reviewSchema = new mongoose.Schema({
   title: { type: String, required: true },
   text: { type: String, required: true },
+  propertyId: { type: String },
   rating: Number,
   createdAt: { type: Date, default: Date.now() },
   createdBy: { type: mongoose.Schema.ObjectId, ref: "User", required: true },
