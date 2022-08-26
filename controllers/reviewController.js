@@ -121,21 +121,12 @@ const remove = async (req, res, next) => {
     const property = await PropertyModel.findById(propertyId)
 
     const reviewToDelete = property.reviews.find(
-      (review) => review.id === reviewId
+      (review) => review.createdBy.toString() === userId
     )
-    if (
-      reviewToDelete.createdBy.toString() !== userId &&
-      req.currentUser.role !== "admin"
-    ) {
-      return res.status(403).json({
-        message: "Forbdiden. Not admin or user who created this review",
-      })
+    if(!reviewToDelete){
+      return res.status(404).json({message: "Review doesnt exist"})
     }
 
-    // filter prop reviews
-    property.reviews = property.reviews.filter(
-      (review) => review.id !== reviewId
-    )
     //filter user rev
     const user = await UserModel.findById(userId)
 
