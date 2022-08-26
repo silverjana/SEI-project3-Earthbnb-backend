@@ -118,18 +118,24 @@ const remove = async (req, res, next) => {
   const { id: userId } = req.currentUser
 
   try {
+    //get property
     const property = await PropertyModel.findById(propertyId)
-
+    // find review made by user
     const reviewToDelete = property.reviews.find(
       (review) => review.createdBy.toString() === userId
     )
+    //if not found - error
     if(!reviewToDelete){
       return res.status(404).json({message: "Review doesnt exist"})
     }
+    //else, filkter and remove
+    property.reviews = property.reviews.filter(
+      (review) => review.createdBy.toString() !== userId
+    )
 
-    //filter user rev
+    //get user
     const user = await UserModel.findById(userId)
-
+    //filter user reviews ( must be there because is on profile)
     user.reviews = user.reviews.filter(
       (review) => review.id !== reviewId
     )
