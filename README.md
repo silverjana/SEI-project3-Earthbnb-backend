@@ -88,10 +88,8 @@ I wrote a first version of the models (property and user) and added the middlewa
 
 #### Day 3
 Frontend: We created route paths and components pages, connected the pages together with navigate() and buttons, and successfully deployed to Netlify.  
-Backend: I coded the review controller  
+Backend: I coded the review controller, linked it to the router, and debugged some errors that prevented db access from the browser. We then attempted to deploy backend to heroku with some errors
 ![create review](https://i.imgur.com/4Axxwk5.png)  
-, linked it to the router, and debugged some errors that prevented db access from the browser. We then attempted to deploy backend to heroku with some errors
-
 
 
 #### Day 4-5 (weekend)
