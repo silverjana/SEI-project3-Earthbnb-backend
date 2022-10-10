@@ -5,9 +5,9 @@
 
 Group members:
 
-Aaron Zahl: https://github.com/Zahlsky
-Flora Stocks: https://github.com/florastocks
-Arianna Giordano: https://github.com/silverjana
+Aaron Zahl: https://github.com/Zahlsky  
+Flora Stocks: https://github.com/florastocks  
+Arianna Giordano: https://github.com/silverjana  
 
 ### Timeframe: 
 
@@ -63,11 +63,14 @@ Trello Board (planning and timeline)
 ## Process
 
 #### Day 1 
-We started with a wireframe planning on Excalidraw for both front and back end
-I set up a Trello Board to coordinate with my teammates
-Project approval by course instructors
+We started with a wireframe planning on Excalidraw for both front and back end  
+I set up a Trello Board to coordinate with my teammates  
+Project approval by course instructor  
 Initial look at new React libraries - I felt like we could take advantage of this project to practice with new material
-
+![excalidraw sketch](https://i.imgur.com/vSijeF1.png)  
+![excalidraw sketch](https://i.imgur.com/gF0Mn3C.png)
+![excalidraw sketch](https://i.imgur.com/kFX1FbJ.png)
+![trello board](https://i.imgur.com/RHS4Nwg.png)
 
 
 #### Day 2
@@ -76,14 +79,15 @@ Setup of Cloudinary account
 Front-end: I created the React app through the terminal, added some basic components to check router functionality,  and installed some packages like axios, bcrypt and jwt. Group added navbar, React-bootstrap and SASS. 
 Backend - Group created dB, started on seedingData, server.js, app.js. 
 I wrote a first version of the models (property and user) and added the middleware: logger, auth, errorHandler
-
-
+![user schema](https://i.imgur.com/FdXGiva.png)  
+![error handler](https://i.imgur.com/Jg3CEP8.png)  
 
 #### Day 3
 Frontend: We created route paths and components pages, connected the pages together with navigate() and buttons, and successfully deployed to Netlify
 Backend: I coded the review controller
-
+![create review](https://i.imgur.com/4Axxwk5.png)  
 , linked it to the router, and debugged some errors that prevented db access from the browser. We then attempted to deploy backend to heroku with some errors
+
 
 
 #### Day 4-5 (weekend)
@@ -95,7 +99,8 @@ Heroku deployment: I cleaned some minor coding mistakes and helped fix a deploym
 
 Front-end: Group added carousel images on property cards on the main page.
 I worked on creating and styling the Login and Register pages and started on the User profile page.
-
+![register](https://i.imgur.com/QRCnNnL.png)  
+![register return](https://i.imgur.com/ySJXjTf.png)  
 Backend:Group created Seeding data with images stored in Cloudinary and continued on CRUD functionality for reviews.
 Deployed latest version and connected frontend and backend
 
@@ -106,7 +111,7 @@ Frontend: Group started the AddProperty form page, worked on the image layout on
 
 Backend: 
 I started writing the userData function in the User controller for the data to display correctly on the User profile page, which was really difficult until I realised that the user model did not have reviews. So I modified the user model to have embedded reviews too, and then had to modify the review controller in order to add and modify the reviews in both arrays ( property and user) when created or updated.
-
+![update review](https://i.imgur.com/nWRtq3E.png)      
 I also added some reviews to the seeding data to test functionality. We fixed the endpoint to match the front end and be uniform and clearer
 Group updated review and property models and seeding data following front end necessities
 
@@ -118,7 +123,8 @@ I finished the User profile page: added a ternary to display only a button to lo
 I then created the Add review page and the Update review page, the corresponding routes, and added the ‘leave a review’ button to the single property page. 
 I also added a smooth scroll to top effect, image lazy loading and loading bar to pages needing it.
 I then started on styling, setting SASS variables for background, buttons, title and footer colours, the user profile page cards, the forms, submit and navigate buttons with hover effect, and the error display messages. 
-	
+![CSS variables](https://i.imgur.com/oBHMGzX.png)   
+![CSS button](https://i.imgur.com/7P6Qz8z.png)   
 Backend:
 We solved an UserData return issue by adding Method Lean to it.
 Group added amenities to property model and seeding data
@@ -133,23 +139,25 @@ Realising we were severely behind on schedule with the styling, I concentrated o
 - styled drop down menus for navbar and main page filter, the error and submitted messages for forms, and added a  “go back” button after a successful login that navigates to the previous page.
 - updated the router paths and names for readability and coherence, and changed the connection string from hardcoded to an environmental constant.
 - finished the Update review page, adding a new axios request to pre-populate the fields.
+![get old review req](https://i.imgur.com/GWsNwf2.png)   
 
 Backend:
 I added the property id to the reviews in user model (always the same issue of embedded data, before could not access property from user profile)
-Added a function in userController to get a single user review back  after some issues with the endpoint because of wrong request data and an Id mix up)
+Added a function in userController to get a single user review back (after some issues with the endpoint because of wrong request data and an Id mix up)
 
 
 #### Deployment day - last minute fixes:
 
 Backend:
 Delete endpoint updated to search property reviews by user and not id, as the id from the request is the review Id in the user model, not the property model (after my advice, as teammate did not understand the issue)
+![delete review](https://i.imgur.com/KadHmzD.png)   
 What I did: Deleted review endpoint was still not working completely, as it was only deleting data from the user and not the property. Had to add a filter to the property reviews to complete functionality.
-
+![delete review 2](https://i.imgur.com/TB1aTRB.png)   
 Front end: Netlify deployment.
 
 
 ## Final Product
-
+![landing](https://i.imgur.com/BgG2isl.png)  
 
 ### Wins and Blockers: 
 #### Wins:
