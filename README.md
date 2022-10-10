@@ -15,12 +15,12 @@ Arianna Giordano: https://github.com/silverjana
 
 ### The Brief:
 
-Build a full-stack application by making your own backend and your own frontend
-Use an Express API to serve your data from a Mongo database
-Consume your API with a separate frontend built with React
-Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
-Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut
-Be deployed online so it's publicly accessible.
+* Build a full-stack application by making your own backend and your own frontend
+* Use an Express API to serve your data from a Mongo database
+* Consume your API with a separate frontend built with React
+* Be a complete product which most likely means multiple relationships and CRUD functionality for at least a couple of models
+* Implement thoughtful user stories/wireframes that are significant enough to help you know which features are core MVP and which you can cut
+* Be deployed online so it's publicly accessible.
 
 Our Idea:
 A platform where users can register, create a personal profile, add Properties to rent or leave reviews on other’s properties. 
@@ -32,33 +32,35 @@ Username: Jane
 Password: 1234
 
 ### Technologies used: 
-Back-end:
-Node.js
-Mongodb
-Express
-Bcrypt
-Mongoose
-jsonwebtoken
-Frontend:
-React
-HTML
-JavaScript
-SCSS
-Axios
-Nodemon
-React Router Dom
-MaterialUI React Library
-Development tools:
-Excalidraw (wireframing)
-VSCode
-NPM
-Insomnia
-Git
-Github
-Google Chrome dev tools
-Heroku (back end deployment)
-Netlify (front end deployment)
-Trello Board (planning and timeline)
+**Back-end:**  
+Node.js  
+Mongodb  
+Express  
+Bcrypt  
+Mongoose  
+jsonwebtoken  
+
+**Frontend:**  
+React  
+HTML  
+JavaScript  
+SCSS  
+Axios  
+Nodemon  
+React Router Dom  
+MaterialUI React Library  
+
+**Development tools:**  
+Excalidraw (wireframing)  
+VSCode  
+NPM  
+Insomnia  
+Git  
+Github  
+Google Chrome dev tools  
+Heroku (back end deployment)  
+Netlify (front end deployment)  
+Trello Board (planning and timeline)  
  
 ## Process
 
@@ -75,16 +77,18 @@ Initial look at new React libraries - I felt like we could take advantage of thi
 
 #### Day 2
 Collaboration on Github and MongoDB Atlas setup.
-Setup of Cloudinary account
-Front-end: I created the React app through the terminal, added some basic components to check router functionality,  and installed some packages like axios, bcrypt and jwt. Group added navbar, React-bootstrap and SASS. 
+Setup of Cloudinary account  
+
+Front-end: I created the React app through the terminal, added some basic components to check router functionality,  and installed some packages like axios, bcrypt and jwt. Group added navbar, React-bootstrap and SASS.  
+
 Backend - Group created dB, started on seedingData, server.js, app.js. 
 I wrote a first version of the models (property and user) and added the middleware: logger, auth, errorHandler
 ![user schema](https://i.imgur.com/FdXGiva.png)  
 ![error handler](https://i.imgur.com/Jg3CEP8.png)  
 
 #### Day 3
-Frontend: We created route paths and components pages, connected the pages together with navigate() and buttons, and successfully deployed to Netlify
-Backend: I coded the review controller
+Frontend: We created route paths and components pages, connected the pages together with navigate() and buttons, and successfully deployed to Netlify.  
+Backend: I coded the review controller  
 ![create review](https://i.imgur.com/4Axxwk5.png)  
 , linked it to the router, and debugged some errors that prevented db access from the browser. We then attempted to deploy backend to heroku with some errors
 
@@ -92,6 +96,7 @@ Backend: I coded the review controller
 
 #### Day 4-5 (weekend)
 Frontend: Group added carousel with buttons to landing page and navbar dropdown. We changed it so that it fetched data from the deployed backend and added endpoints for GetAll, Register, Login and GetIndividual.
+
 Heroku deployment: I cleaned some minor coding mistakes and helped fix a deployment error (error 8000, {handshake} issue) - we needed to update the connection string with a new username and password (no numbers) on Atlas.  
 
 
@@ -118,11 +123,12 @@ Group updated review and property models and seeding data following front end ne
 
 #### Day 8
 Frontend: 
-Group added the filter to the main page and split the single property page into components for clarity.
-I finished the User profile page: added a ternary to display only a button to log in if the user is not logged in and added navigate buttons to see or create a property.
-I then created the Add review page and the Update review page, the corresponding routes, and added the ‘leave a review’ button to the single property page. 
-I also added a smooth scroll to top effect, image lazy loading and loading bar to pages needing it.
-I then started on styling, setting SASS variables for background, buttons, title and footer colours, the user profile page cards, the forms, submit and navigate buttons with hover effect, and the error display messages. 
+Group added the filter to the main page and split the single property page into components for clarity.  
+I completed the review CRUD functionality and finished the other components:  
+- finished the User profile page: added a ternary to display only a button to log in if the user is not logged in and added navigate buttons to see or create a property.
+- created the Add review page and the Update review page, the corresponding routes, and added the ‘leave a review’ button to the single property page. 
+- added a smooth scroll to top effect, image lazy loading and loading bar to pages needing it.
+- started on styling, setting SASS variables for background, buttons, title and footer colours, the user profile page cards, the forms, submit and navigate buttons with hover effect, and the error display messages. 
 ![CSS variables](https://i.imgur.com/oBHMGzX.png)   
 ![CSS button](https://i.imgur.com/7P6Qz8z.png)   
 Backend:
@@ -133,7 +139,8 @@ Group added amenities to property model and seeding data
 
 #### Day 9 
 Frontend:
-Group implemented update image option for add property page and finished styling main page 
+Group implemented update image option for add property page and finished styling main page.
+
 Realising we were severely behind on schedule with the styling, I concentrated on that even if the back end was not perfect: 
 - created and styled the sticky footer with links to our github pages. Then I put  the treehouse logo together in Canvas and added it to navbar. I downloaded a font file, imported it to main.scss with @font-face and styled the title. 
 - styled drop down menus for navbar and main page filter, the error and submitted messages for forms, and added a  “go back” button after a successful login that navigates to the previous page.
